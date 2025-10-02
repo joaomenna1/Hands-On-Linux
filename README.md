@@ -202,5 +202,7 @@ O LDR precisa de um resistor pois:
 
 Código leitura LDR: https://github.com/joaomenna1/Hands-On-Linux/blob/main/LDR_read.ino
 
+<img width="1920" height="1080" alt="LDRteste" src="https://github.com/user-attachments/assets/8dd74556-16fd-424b-9b5e-3f4d8dbd1d6c" />
+
 Contribuidores:
 - Diego Furtado - Prototipação. escrita do código do LDR, fotografia da protoboard e testes.
