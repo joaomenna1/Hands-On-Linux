@@ -46,6 +46,8 @@ Este projeto serve como um exemplo para desenvolvedores interessados em construi
   - Rotinas de inicialização e limpeza.
   - Operações de arquivo de dispositivo (`GET_LED`, `SET_LED`, `GET_LDR`).
   - Comunicação com o ESP32 via Serial.
+ 
+## Título: Validação do Ambiente e Conexão da Placa
 
 ## Requisitos
 
@@ -142,3 +144,23 @@ Depois que o driver e o firmware estiverem configurados, você poderá interagir
 ## Contato
 
 Para perguntas, sugestões ou feedback, entre em contato com o mantenedor do projeto em [maintainer@example.com](mailto:maintainer@example.com).
+
+======================================
+Validação do Ambiente e Conexão da Placa
+
+Foi necessário tirar do blacklist a esp32;
+Foram necessários os comandos abaixo:
+lsmod | grep cp210
+sudo modprobe cp210x
+sudo usermod -a -G dialout $USER
+reiniciar o pc
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+ls /dev/ttyUSB*
+
+
+após os comandos acima a opção "porta" apareceu no arduino IDE, tanto segurando o botão boot quando simplesmente plugando o cabo;
+
+Foi necessário alterar o valor do bauldrate no código de teste para 921600
+
+https://private-user-images.githubusercontent.com/6727692/495938992-0a594e32-d2c9-43da-bfe9-063de2f9042e.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTk0MzgxODYsIm5iZiI6MTc1OTQzNzg4NiwicGF0aCI6Ii82NzI3NjkyLzQ5NTkzODk5Mi0wYTU5NGUzMi1kMmM5LTQzZGEtYmZlOS0wNjNkZTJmOTA0MmUucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI1MTAwMiUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNTEwMDJUMjA0NDQ2WiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9ZTA2MTM4ZWUwMDEzMTFmMWM2NjUxMzcyNzBiMGVhMzI0YmNlOTNkYzVmMjUxNzVmODE0YzIzMTM4YjU5NWNmNyZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.NrYATZvd7m3Cn4ZlvrAKMRh4HZBIxp0OyjpOgLdwhQ0
