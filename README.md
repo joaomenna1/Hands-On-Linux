@@ -151,13 +151,13 @@ Atividade 1.1 Validação do Ambiente e Conexão da Placa
 
 Foi necessário tirar do blacklist a esp32;
 Foram necessários os comandos abaixo:
-lsmod | grep cp210
-sudo modprobe cp210x
-sudo usermod -a -G dialout $USER
-reiniciar o pc
-sudo udevadm control --reload-rules
-sudo udevadm trigger
-ls /dev/ttyUSB*
+- lsmod | grep cp210
+- sudo modprobe cp210x
+- sudo usermod -a -G dialout $USER
+- reiniciar o pc
+- sudo udevadm control --reload-rules
+- sudo udevadm trigger
+- ls /dev/ttyUSB*
 
 
 após os comandos acima a opção "porta" apareceu no arduino IDE, tanto segurando o botão boot quando simplesmente plugando o cabo;
