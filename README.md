@@ -175,6 +175,9 @@ Atividade 1.2 Prototipação e Teste do LED
 
 - Realizada prototipação;
 - Escrita do código para blinkar o led;
+- 
+![protoboard](https://github.com/user-attachments/assets/64a67d36-9093-43e3-ab8a-8e72035be7a4)
+
 
 Contribuidores:
 - Diego Furtado - Prototipação. escrita do código de blinkar, fotografia da protoboard e testes.
