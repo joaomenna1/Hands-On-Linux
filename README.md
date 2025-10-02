@@ -177,7 +177,7 @@ Contrbiuidores:
 - Escrita do código para blinkar o led;
 - código: https://github.com/joaomenna1/Hands-On-Linux/blob/main/blink.ino
 
-- Screenshot:
+- Protoboard:
 ![protoboard](https://github.com/user-attachments/assets/64a67d36-9093-43e3-ab8a-8e72035be7a4)
 
 - Vídeo:
