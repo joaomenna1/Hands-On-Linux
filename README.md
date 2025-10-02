@@ -165,3 +165,10 @@ após os comandos acima a opção "porta" apareceu no arduino IDE, tanto seguran
 Foi necessário alterar o valor do bauldrate no código de teste para 921600
 
 <img width="1920" height="1080" alt="Screenshot_20250930_200531" src="https://github.com/user-attachments/assets/50b5a991-3fa7-45fb-99dd-6384f3cdf086" />
+
+========================================
+
+Atividade 1.2 Prototipação e Teste do LED
+
+- Realizada prototipação;
+- Escrita do código para blinkar o led;
