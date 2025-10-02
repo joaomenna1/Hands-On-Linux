@@ -177,11 +177,14 @@ Contrbiuidores:
 - Escrita do código para blinkar o led;
 - código: https://github.com/joaomenna1/Hands-On-Linux/blob/main/blink.ino
 
-- Protoboard:
+- Protoboard:  
 ![protoboard](https://github.com/user-attachments/assets/64a67d36-9093-43e3-ab8a-8e72035be7a4)
 
 - Vídeo:
-https://github.com/user-attachments/assets/cacb4a69-d302-4242-b028-2d94b26824b0
+
+https://github.com/user-attachments/assets/526c937d-00b2-4911-a5e4-af9ea123fbb6
+
+
 
 Contribuidores:
 - Diego Furtado - Prototipação. escrita do código de blinkar, fotografia da protoboard e testes.
