@@ -147,18 +147,18 @@ Para perguntas, sugestões ou feedback, entre em contato com o mantenedor do pro
 
 ======================================
 
-Atividade 1.1 Validação do Ambiente e Conexão da Placa
+## Atividade 1.1 Validação do Ambiente e Conexão da Placa
 
 Foi necessário tirar do blacklist a esp32;
 Foram necessários os comandos abaixo:
-- lsmod | grep cp210
+```- lsmod | grep cp210
 - sudo modprobe cp210x
 - sudo usermod -a -G dialout $USER
 - reiniciar o pc
 - sudo udevadm control --reload-rules
 - sudo udevadm trigger
 - ls /dev/ttyUSB*
-
+```
 
 após os comandos acima a opção "porta" apareceu no arduino IDE, tanto segurando o botão boot quando simplesmente plugando o cabo;
 
@@ -171,7 +171,7 @@ Contrbiuidores:
 
 ========================================
 
-Atividade 1.2 Prototipação e Teste do LED
+## Atividade 1.2 Prototipação e Teste do LED
 
 - Realizada prototipação;
 - Escrita do código para blinkar o led;
@@ -181,3 +181,26 @@ Atividade 1.2 Prototipação e Teste do LED
 
 Contribuidores:
 - Diego Furtado - Prototipação. escrita do código de blinkar, fotografia da protoboard e testes.
+
+=========================================
+
+## Atividade 1.3 Prototipação e Teste do Sensor LDR
+
+O LDR precisa de um resistor pois:
+
+1. Variação de Tensão:
+
+    O LDR, ao ser iluminado, apresenta uma resistência baixa, levando a uma maior corrente elétrica. No escuro, sua resistência aumenta, resultando em menor corrente.
+    Usar um resistor em série com o LDR cria um divisor de tensão, que ajuda a converter essas variações de resistência em variações de tensão, que são lidas pelo pino ADC.
+
+2. Limitar a Tensão na Entrada:
+
+    O pino ADC do microcontrolador (como o ESP32) tem um limite de tensão (geralmente 0 a 3.3V). Sem um resistor, pode ocorrer uma tensão excessiva, potencialmente danificando o pino ADC.
+    Com um resistor, a tensão na entrada do ADC fica dentro do intervalo seguro, garantindo o funcionamento adequado do circuito.
+
+![5113856820656147251](https://github.com/user-attachments/assets/62970cad-7e92-4be6-89e1-8c3a4218909d)
+
+Código leitura LDR: https://github.com/joaomenna1/Hands-On-Linux/blob/main/LDR_read.ino
+
+Contribuidores:
+- Diego Furtado - Prototipação. escrita do código do LDR, fotografia da protoboard e testes.
