@@ -160,7 +160,7 @@ Foram necessários os comandos abaixo:
 - ls /dev/ttyUSB*
 ```
 
-após os comandos acima a opção "porta" apareceu no arduino IDE, tanto segurando o botão boot quando simplesmente plugando o cabo;
+após os comandos acima a opção "porta" apareceu no arduino IDE, tanto segurando o botão boot quando simplesmente plugando o cabo sem apertar o botão boot;
 
 Foi necessário alterar o valor do bauldrate no código de teste para 921600
 
@@ -176,8 +176,12 @@ Contrbiuidores:
 - Realizada prototipação;
 - Escrita do código para blinkar o led;
 - código: https://github.com/joaomenna1/Hands-On-Linux/blob/main/blink.ino
+
+- Screenshot:
 ![protoboard](https://github.com/user-attachments/assets/64a67d36-9093-43e3-ab8a-8e72035be7a4)
 
+- Vídeo:
+https://github.com/user-attachments/assets/cacb4a69-d302-4242-b028-2d94b26824b0
 
 Contribuidores:
 - Diego Furtado - Prototipação. escrita do código de blinkar, fotografia da protoboard e testes.
@@ -198,10 +202,12 @@ O LDR precisa de um resistor pois:
     O pino ADC do microcontrolador (como o ESP32) tem um limite de tensão (geralmente 0 a 3.3V). Sem um resistor, pode ocorrer uma tensão excessiva, potencialmente danificando o pino ADC.
     Com um resistor, a tensão na entrada do ADC fica dentro do intervalo seguro, garantindo o funcionamento adequado do circuito.
 
+- Código: https://github.com/joaomenna1/Hands-On-Linux/blob/main/LDR_read.ino
+
+- Protoboard:
 ![5113856820656147251](https://github.com/user-attachments/assets/62970cad-7e92-4be6-89e1-8c3a4218909d)
 
-Código leitura LDR: https://github.com/joaomenna1/Hands-On-Linux/blob/main/LDR_read.ino
-
+- Screenshot teste LDR:
 <img width="1920" height="1080" alt="LDRteste" src="https://github.com/user-attachments/assets/8dd74556-16fd-424b-9b5e-3f4d8dbd1d6c" />
 
 Contribuidores:
