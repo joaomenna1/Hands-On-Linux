@@ -14,8 +14,9 @@ static uint usb_in, usb_out;                       // Endereços das portas de e
 static char *usb_in_buffer, *usb_out_buffer;       // Buffers de entrada e saída da USB
 static int usb_max_size;                           // Tamanho máximo de uma mensagem USB
 
-#define VENDOR_ID   SUBSTITUA_PELO_VENDORID /* Encontre o VendorID  do smartlamp */
-#define PRODUCT_ID  SUBSTITUA_PELO_PRODUCTID /* Encontre o ProductID do smartlamp */
+#define VENDOR_ID  0x10C4
+#define PRODUCT_ID 0xEA60
+
 static const struct usb_device_id id_table[] = { { USB_DEVICE(VENDOR_ID, PRODUCT_ID) }, {} };
 
 static int  usb_probe(struct usb_interface *ifce, const struct usb_device_id *id); // Executado quando o dispositivo é conectado na USB
@@ -98,7 +99,7 @@ static int usb_probe(struct usb_interface *interface, const struct usb_device_id
 
     // TASK 2.2: Chame a função usb_write_serial para enviar o comando SET_LED com valor 100
     // Descomente a linha abaixo e implemente a função usb_write_serial
-    // ret = usb_write_serial("SET_LED", 100);
+    // ret = usb_write_serial("SET_LED", 100);y
 
     return 0;
 }
@@ -119,8 +120,22 @@ static int usb_write_serial(char *cmd, int param) {
     printk(KERN_INFO "SmartLamp: Enviando comando: %s %d\n", cmd, param);
 
     // TASK 2.2: Implemente o envio do comando para o dispositivo
+    snprintf(usb_out_buffer, usb_max_size, "%s %d\n", cmd, param);
+
     // Dica: Formate o comando no buffer usb_out_buffer e envie usando usb_bulk_msg
     // O formato esperado é: "COMANDO PARAMETRO\n"
+    ret = usb_bulk_msg(smartlamp_device,
+                       usb_sndbulkpipe(smartlamp_device, usb_out),
+                       usb_out_buffer,
+                       strlen(usb_out_buffer),
+                       &actual_size,
+                       1000);
 
+    if (ret != 0) {
+        printk(KERN_ERR "SmartLamp: Erro ao enviar comando (usb_bulk_msg retornou %d)\n", ret);
+        return -1;
+    }
+
+    printk(KERN_INFO "SmartLamp: Comando enviado com sucesso (%d bytes)\n", actual_size);
     return 0;
 }
