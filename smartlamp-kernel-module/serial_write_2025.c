@@ -27,7 +27,7 @@ static int  usb_write_serial(char *cmd, int param);                             
 static int smartlamp_config_serial(struct usb_device *dev)
 {
     int ret;
-    u32 baudrate = 9600; // Defina o baud rate que seu ESP32 usa!
+    u32 baudrate = 115200; // Defina o baud rate que seu ESP32 usa!
 
     printk(KERN_INFO "SmartLamp: Configurando a porta serial...\n");
 
@@ -99,7 +99,7 @@ static int usb_probe(struct usb_interface *interface, const struct usb_device_id
 
     // TASK 2.2: Chame a função usb_write_serial para enviar o comando SET_LED com valor 100
     // Descomente a linha abaixo e implemente a função usb_write_serial
-    // ret = usb_write_serial("SET_LED", 100);y
+    ret = usb_write_serial("SET_LED", 0);
 
     return 0;
 }
