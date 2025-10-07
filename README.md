@@ -215,3 +215,69 @@ O LDR precisa de um resistor pois:
 
 Contribuidores:
 - Diego Furtado - Prototipação. escrita do código do LDR, fotografia da protoboard e testes.
+
+  ## Atividade 1.4 Firmware - Implementação do Protocolo de Comunicação Serial
+
+4.2 Comandos e Protocolo
+  - Comando	Descrição	Resposta Esperada
+  - SET_LED X	Define intensidade do LED (0–100)	RES SET_LED 1 (sucesso) / RES SET_LED -1 (erro)
+  - GET_LED	Retorna intensidade atual do LED	RES GET_LED Y
+  - GET_LDR	Retorna valor do LDR normalizado	RES GET_LDR Z
+  - SET_THRESHOLD X	Define limiar automático	RES SET_THRESHOLD 1
+  - GET_THRESHOLD	Retorna valor do threshold	RES GET_THRESHOLD H
+  - Comando inválido	-	ERR Unknown command.
+
+
+  
+4.3 Normalização de Valores
+
+- LDR: valores analógicos (0–4095) normalizados para 0–100 usando:
+<img width="317" height="23" alt="image" src="https://github.com/user-attachments/assets/6212dde3-ce32-4922-85e1-419627c44082" />
+
+
+- LED: valores de intensidade (0–100) convertidos para PWM (0–255) com:
+
+<img width="253" height="22" alt="image" src="https://github.com/user-attachments/assets/f3d41a9a-eeee-48b9-9c01-801e56fa7ef9" />
+
+
+4.4 Envio Periódico
+
+- A cada 2 segundos, o firmware envia automaticamente a leitura do LDR via Serial:
+
+RES GET_LDR Z:
+
+<img width="115" height="64" alt="image" src="https://github.com/user-attachments/assets/97197d85-cb91-44f7-b46f-088abad3100f" />
+
+Resultados
+
+- O LED respondeu corretamente aos comandos SET_LED e ao acionamento automático via threshold.
+
+- O LDR apresentou leituras coerentes com a iluminação ambiente, normalizadas corretamente para 0–100.
+
+- O envio periódico das leituras do LDR foi executado de forma consistente a cada 2 segundos.
+
+Exemplos de testes no Monitor Serial:
+
+- Comando: SET_LED 80
+
+Resposta: <img width="139" height="21" alt="image" src="https://github.com/user-attachments/assets/08761205-e30e-4f41-b6e6-b33189598b22" />
+
+
+- Comando: GET_LED
+
+Resposta: <img width="139" height="21" alt="image" src="https://github.com/user-attachments/assets/0f894d6f-997a-4ca5-883b-11e4feff6040" />
+
+
+- Comando: GET_LDR
+
+Resposta: <img width="139" height="21" alt="image" src="https://github.com/user-attachments/assets/984d23fe-1dd5-4a25-8bed-d76b71376480" />
+
+
+- Envio periódico:
+<img width="112" height="62" alt="image" src="https://github.com/user-attachments/assets/15d76250-de47-4e6f-a592-7b90e4f808ae" />
+
+
+
+Contribuidores:
+
+- Elian Pinheiro - Desenvolvimento do firmware, teste de funções, embarcados e afins.
